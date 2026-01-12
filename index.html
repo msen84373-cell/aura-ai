@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Aura AI - Task Manager</title>
+        <style>
+            body {
+                background: #0f172a;
+                color: white;
+                font-family: sans-serif;
+                display: flex;
+                justify-content: center;
+                padding: 20px;
+            }
+            .app-container {
+                background: #1e293b;
+                padding: 25px;
+                border-radius: 20px;
+                width: 100%;
+                max-width: 400px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            }
+            h1 {
+                color: #38bdf8;
+                text-align: center;
+            }
+            input {
+                width: 100%;
+                padding: 12px;
+                border-radius: 10px;
+                border: none;
+                margin-bottom: 10px;
+                box-sizing: border-box;
+            }
+            button {
+                width: 100%;
+                padding: 12px;
+                border-radius: 10px;
+                border: none;
+                background: #38bdf8;
+                color: white;
+                font-weight: bold;
+                cursor: pointer;
+            }
+            .task-list {
+                margin-top: 20px;
+            }
+            .task-item {
+                background: #334155;
+                padding: 10px;
+                border-radius: 8px;
+                margin-bottom: 5px;
+                display: flex;
+                justify-content: space-between;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="app-container">
+            <h1>Aura AI v1.0</h1>
+            <input type="text" id="taskInput" placeholder="Täze iş ýazyň..." />
+            <button onclick="addTask()">Işi Goş</button>
+            <div class="task-list" id="taskList"></div>
+        </div>
+
+        <script>
+            function addTask() {
+                const input = document.getElementById("taskInput");
+                const list = document.getElementById("taskList");
+                if (input.value === "") return alert("Işi ýazyň!");
+
+                const div = document.createElement("div");
+                div.className = "task-item";
+                div.innerHTML = `<span>${input.value}</span> <small style="color: #10b981;">Aktiw</small>`;
+                list.appendChild(div);
+
+                input.value = ""; // Inputy arassala
+            }
+        </script>
+    </body>
+</html>
